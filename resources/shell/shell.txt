@@ -1,0 +1,76 @@
+ROOT=/home/vagrant/share
+
+
+#配置yum源
+cp $ROOT/repos/* /etc/yum.repos.d/
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo-back
+
+#修改yum配置
+sed -i '/^cachedir/{s|.*|cachedir=/home/vagrant/share/yum|};/^keepcache/s/=.*/=1/' /etc/yum.conf
+
+yum makecache
+
+
+#准备k8s环境
+swapoff -a
+sed -i '\|^[ \t]*/swapfile|s/.*/#&/' /etc/fstab
+
+setenforce 0
+sed -i 's/^SELINUX=.*$/SELINUX=permissive/' /etc/selinux/config
+
+cat >> /etc/sysctl.conf <<EOF
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+EOF
+modprobe br_netfilter
+sysctl -p
+
+hostname | xargs hostnamectl  set-hostname
+
+
+#安装docker
+yum install -y docker-ce
+
+#配置docker
+mkdir /etc/docker -p
+cp $ROOT/k8s/daemon.json /etc/docker/
+chmod 644 /etc/docker/daemon.json
+
+systemctl enable --now docker
+
+
+#安装kubelet kubeadm kubectl
+yum install -y kubelet kubeadm kubectl –disableexcludes=kubernetes
+systemctl enable --now kubelet
+
+
+#运行docker regisgtry
+docker load -i $ROOT/docker/registry.tar
+docker run --name=docker-registry -d --rm -p5000:5000 -v/home/vagrant/share/docker/registry:/var/lib/registry registry:2 
+
+
+#运行k8s
+kubeadm init --kubernetes-version=v1.18.0 --image-repository=localhost:5000/k8s.gcr.io --pod-network-cidr=192.168.0.0/16
+
+#单机
+#kubeadm init --kubernetes-version=v1.18.0 --image-repository=localhost:5000/k8s.gcr.io --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=172.28.128.4  --node-name=172.28.128.4
+#集群
+#kubeadm init --kubernetes-version=v1.18.0 --image-repository=localhost:5000/k8s.gcr.io --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=172.28.128.4  --node-name=172.28.128.4 --control-plane-endpoint "k8s-2:6444" --upload-certs | tee ~/abcd
+
+
+mkdir -p $HOME/.kube
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+#运行calico
+kubectl apply -f $ROOT/k8s/calico.yaml
+
+
+#在k8s运行docker regisgtry
+docker stop docker-registry
+RegistryName=docker-registry
+cp $ROOT/k8s/$RegistryName.yaml /etc/kubernetes/manifests/
+chmod 600 /etc/kubernetes/manifests/$RegistryName.yaml
+kubectl expose pod $RegistryName-$(hostname) --name=$RegistryName --type=NodePort  --overrides='{"apiVersion":"v1","spec":{"ports":[{"port":5000,"nodePort":30000}]}}'
+

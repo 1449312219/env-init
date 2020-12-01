@@ -1,0 +1,6 @@
+[local]
+name=local
+enabled=1
+#mirrorlist=http://192.168.1.61:8080/yum/repodata
+baseurl=http://192.168.1.61:8080/yum/
+gpgcheck=0

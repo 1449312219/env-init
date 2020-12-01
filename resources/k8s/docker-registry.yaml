@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: docker-registry
+  name: docker-registry
+spec:
+  volumes:
+  - name: local-registry
+    hostPath:
+      path: /home/vagrant/share/docker/registry
+      type: Directory
+  tolerations:
+  - key: node-role.kubernetes.io/master
+    effect: NoSchedule
+  containers:
+  - image: registry:2
+    name: docker-registry
+    ports:
+    - containerPort: 5000
+      hostPort: 30000
+    volumeMounts:
+    - name: local-registry
+      mountPath: /var/lib/registry
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  hostNetwork: true
