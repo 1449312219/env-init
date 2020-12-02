@@ -3,8 +3,8 @@
 
 #配置yum源
 rm /etc/yum.repos.d/*.repo -rf
-sed "/baseurl/ s|//[^/]*|//$MASTER_IP:$NGINX_PORT|" $ROOT/repos/local.repo \
-> /etc/yum.repos.d/local.repo
+sed -r -e "/baseurl/ s|//[^/]*|//${MASTER_IP}:${NGINX_PORT}|" \
+    ${RESOURCES_ROOT}/repo/local.repo > /etc/yum.repos.d/local.repo
 yum makecache
 
 
@@ -12,5 +12,5 @@ yum makecache
 
 
 #运行k8s
-until [ -e $JOIN_CMD_FILE ]; do sleep 3; done
-bash -c "$(cat $JOIN_CMD_FILE)  --apiserver-advertise-address=$IP"
+until [ -e ${JOIN_CMD_FILE} ]; do sleep 3; done
+bash -c "$(cat ${JOIN_CMD_FILE}) --apiserver-advertise-address=${IP}"

@@ -427,7 +427,7 @@ valign=center
 halign=left
 fontsize=16
 / /shell/
-/ /repo /
+/ /repos/
 / /k8s/</panel_attributes>
     <additional_attributes/>
   </element>

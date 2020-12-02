@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
     v.memory = 2048
   end
-	  
+      
   config.vm.synced_folder '.', '/vagrant', disabled: true
     
   config.vm.define "master" do |master|

@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: docker-registry
-  name: docker-registry
+    run: ${NAME}
+  name: ${NAME}
 spec:
   volumes:
   - name: local-registry
     hostPath:
-      path: /home/vagrant/share/docker/registry
+      path: ${LOCAL_REGISTRY_PATH}
       type: Directory
   tolerations:
   - key: node-role.kubernetes.io/master
@@ -18,7 +18,7 @@ spec:
     name: docker-registry
     ports:
     - containerPort: 5000
-      hostPort: 30000
+      hostPort: ${HOST_PORT}
     volumeMounts:
     - name: local-registry
       mountPath: /var/lib/registry

@@ -12,7 +12,7 @@ EOF
 modprobe br_netfilter
 sysctl -p
 
-hostnamectl set-hostname $IP
+hostnamectl set-hostname ${IP}
 
 
 #安装docker
@@ -20,7 +20,8 @@ yum install -y docker-ce
 
 #配置docker
 mkdir /etc/docker -p
-sed -r "/insecure-registries/ s|\[(.*)\]|[\"$MASTER_IP:$DOCKER_REGISTRY_PORT\"]|" $ROOT/k8s/daemon.json > /etc/docker/daemon.json
+sed -r -e "/insecure-registries/ s|\[(.*)\]|[\"${MASTER_IP}:${DOCKER_REGISTRY_PORT}\"]|" \
+  ${RESOURCES_ROOT}/k8s/daemon.json > /etc/docker/daemon.json
 
 systemctl enable --now docker
 
