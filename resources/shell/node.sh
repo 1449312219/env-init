@@ -1,14 +1,17 @@
+set -ex
+set -o pipefail
+
 . ./init-env.sh
 
 
 #配置yum源
 rm /etc/yum.repos.d/*.repo -rf
 sed -r -e "/baseurl/ s|//[^/]*|//${MASTER_IP}:${NGINX_PORT}|" \
-    ${RESOURCES_ROOT}/repo/local.repo > /etc/yum.repos.d/local.repo
+  ${RESOURCES_ROOT}/repos/local.repo > /etc/yum.repos.d/local.repo
 yum makecache
 
 
-./init-k8s-context.sh
+bash ./init-k8s-context.sh false
 
 
 #运行k8s
