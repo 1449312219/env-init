@@ -16,7 +16,7 @@ hostnamectl set-hostname ${IP}
 
 
 #安装docker
-yum install -y docker-ce
+yum install -yC docker-ce-19.03.14-3
 
 #配置docker
 mkdir /etc/docker -p
@@ -27,5 +27,6 @@ systemctl enable --now docker
 
 
 #安装kubelet kubeadm kubectl
-yum install -y kubelet kubeadm kubectl –disableexcludes=kubernetes
+#yum install -y kubelet kubeadm kubectl –disableexcludes=kubernetes
+yum install -yC kubelet-1.18.8-0 kubeadm-1.18.8-0 kubectl-1.18.8-0
 systemctl enable --now kubelet

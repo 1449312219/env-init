@@ -1,3 +1,6 @@
+set -ex
+set -o pipefail
+
 . ./init-env.sh
 
 rm -rf ${JOIN_CMD_FILE}
@@ -49,10 +52,10 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 #在k8s运行docker regisgtry
 docker stop ${registryName}
-sed -r -e "s|\${NAME}|${registryName}|" \
-       -e "s|\${LOCAL_REGISTRY_PATH}|${registryLocalPath}|" \
-       -e "s|\${HOST_PORT}|${DOCKER_REGISTRY_PORT}/" \
-    ${RESOURCES_ROOT}/k8s/${RegistryName}.yaml > /etc/kubernetes/manifests/${RegistryName}.yaml
+sed -e "s|\${NAME}|${registryName}|" \
+    -e "s|\${LOCAL_REGISTRY_PATH}|${registryLocalPath}|" \
+    -e "s|\${HOST_PORT}|${DOCKER_REGISTRY_PORT}|" \
+  ${RESOURCES_ROOT}/k8s/${registryName}.yaml > /etc/kubernetes/manifests/${registryName}.yaml
 until kubectl get pod docker-registry-$(hostname) ;do  sleep 3; done
 #暴露为服务
 #kubectl expose pod $RegistryName-$(hostname) --name=$RegistryName --type=NodePort  --overrides='{"apiVersion":"v1","spec":{"ports":[{"port":5000,"nodePort":'$DOCKER_REGISTRY_PORT'}]}}'
@@ -60,11 +63,11 @@ until kubectl get pod docker-registry-$(hostname) ;do  sleep 3; done
 
 #运行calico
 sed -r "/image/s|image: (.*)|image: ${IP}:${DOCKER_REGISTRY_PORT}/\1|" \
-    ${RESOURCES_ROOT}/k8s/calico.yaml | kubectl apply -f -
+  ${RESOURCES_ROOT}/k8s/calico.yaml | kubectl apply -f -
 
 
 #运行nginx, 暴露yum源
-yum install createrepo -y
+yum install -yC createrepo
 createrepo ${PACKAGES_ROOT}/yum
 docker run --name nginx -d -p${NGINX_PORT}:80 -v${PACKAGES_ROOT}/yum:/usr/share/nginx/html/yum ${IP}:${DOCKER_REGISTRY_PORT}/nginx
 
