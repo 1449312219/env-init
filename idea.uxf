@@ -400,7 +400,7 @@ lw=.4
       <x>660</x>
       <y>430</y>
       <w>70</w>
-      <h>60</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=..
 lw=.6
@@ -408,8 +408,9 @@ style=autoresize
 valign=center
 halign=left
 fontsize=16
+/ /docker/
 / /yum/
-/ /docker/</panel_attributes>
+/ /elf/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

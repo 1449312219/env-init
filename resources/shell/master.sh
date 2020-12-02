@@ -18,6 +18,7 @@ sed -i -e "/^cachedir/{s|.*|cachedir=${PACKAGES_ROOT}/yum|}" \
 yum makecache fast -y
 
 
+#安装k8s
 ./init-k8s-context.sh
 
 
@@ -71,6 +72,9 @@ yum install -yC createrepo
 createrepo ${PACKAGES_ROOT}/yum
 docker run --name nginx -d -p${NGINX_PORT}:80 -v${PACKAGES_ROOT}/yum:/usr/share/nginx/html/yum ${IP}:${DOCKER_REGISTRY_PORT}/nginx
 
+
+#安装helm
+./init-helm.sh
 
 #运行tekton
 #./tekton/auto.sh
