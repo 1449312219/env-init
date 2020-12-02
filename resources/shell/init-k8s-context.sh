@@ -16,7 +16,7 @@ hostnamectl set-hostname ${IP}
 
 
 #安装docker
-yum install -yC docker-ce-19.03.14-3
+yum install -yC docker-ce-19.03.14-3.el7
 
 #配置docker
 mkdir /etc/docker -p
