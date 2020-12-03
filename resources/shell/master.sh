@@ -73,8 +73,8 @@ createrepo ${PACKAGES_ROOT}/yum
 docker run --name nginx -d -p${NGINX_PORT}:80 -v${PACKAGES_ROOT}/yum:/usr/share/nginx/html/yum ${IP}:${DOCKER_REGISTRY_PORT}/nginx
 
 
-#安装helm
-./init-helm.sh
+#安装服务
+./init-services.sh
 
 #运行tekton
 #./tekton/auto.sh
