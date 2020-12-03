@@ -9,5 +9,5 @@
     "overlay2.override_kernel_check=true"
   ],
   "registry-mirrors": ["https://y4mp5m38.mirror.aliyuncs.com", "http://hub-mirror.c.163.com"],
-  "insecure-registries": ["localhost:5000"]
+  "insecure-registries": ["inner-docker-registry:5000"]
 }
