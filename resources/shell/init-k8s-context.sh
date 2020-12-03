@@ -24,7 +24,7 @@ ${yum} docker-ce-19.03.14-3.el7
 #配置docker
 mkdir /etc/docker -p
 sed "/insecure-registries/s/\[/[\"${MASTER_IP}:${DOCKER_REGISTRY_PORT}\",/" \
-  ${RESOURCES_ROOT}/k8s/daemon.json > /etc/docker/daemon.json
+  ${RESOURCES_ROOT}/k8s/docker-daemon.json > /etc/docker/daemon.json
 #配置hosts
 cat >> /etc/hosts <<EOF
 ${MASTER_IP} inner-docker-registry
