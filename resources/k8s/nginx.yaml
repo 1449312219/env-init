@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: ${NAME}
+  name: ${NAME}
+spec:
+  volumes:
+  - name: local-packages
+    hostPath:
+      path: ${LOCAL_PACKAGES_PATH}
+      type: Directory
+  tolerations:
+  - key: node-role.kubernetes.io/master
+    effect: NoSchedule
+  containers:
+  - image: ${REGISTRY_URL}/nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+      hostPort: ${HOST_PORT}
+    volumeMounts:
+    - name: local-packages
+      mountPath: /usr/share/nginx/html/yum
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

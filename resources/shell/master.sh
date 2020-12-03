@@ -70,7 +70,11 @@ sed -r "/image/s|image: (.*)|image: ${IP}:${DOCKER_REGISTRY_PORT}/\1|" \
 #运行nginx, 暴露yum源
 yum install -yC createrepo
 createrepo ${PACKAGES_ROOT}/yum
-docker run --name nginx -d -p${NGINX_PORT}:80 -v${PACKAGES_ROOT}/yum:/usr/share/nginx/html/yum ${IP}:${DOCKER_REGISTRY_PORT}/nginx
+sed -e "s|\${NAME}|nginx|" \
+    -e "s|\${LOCAL_PACKAGES_PATH}|${PACKAGES_ROOT}/yum|" \
+    -e "s|\${HOST_PORT}|${NGINX_PORT}|" \
+    -e "s|\${REGISTRY_URL}|${IP}:${DOCKER_REGISTRY_PORT}|" \
+  ${RESOURCES_ROOT}/k8s/nginx.yaml > /etc/kubernetes/manifests/nginx.yaml
 
 
 #安装服务
