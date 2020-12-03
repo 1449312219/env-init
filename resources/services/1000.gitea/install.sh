@@ -1,7 +1,7 @@
 name=gitea
 chart=${name}-0.2.1.tgz
 
-registry=${MASTER_IP}:${DOCKER_REGISTRY_PORT}
+registry=${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PORT}
 giteaPvcName=${name}-gitea
 postgresPvcName=${name}-postgres
 secretName=${name}-externaldb

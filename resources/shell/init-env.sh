@@ -9,6 +9,7 @@ export JOIN_CMD_FILE=$RESOURCES_ROOT/shell/join.sh
 
 #export POD_CIDR=
 
+export DOCKER_REGISTRY_HOST=inner-docker-registry
 export DOCKER_REGISTRY_PORT=5000
 export NGINX_PORT=8080
 

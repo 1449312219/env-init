@@ -34,7 +34,7 @@ docker run --name=${registryName} -d --rm \
 #运行k8s
 LOG=/tmp/kubeadm-init.log
 kubeadm init --kubernetes-version=v1.18.0 \
---image-repository=${IP}:${DOCKER_REGISTRY_PORT}/k8s.gcr.io \
+--image-repository=${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PORT}/k8s.gcr.io \
 --pod-network-cidr=${POD_CIDR} \
 --apiserver-advertise-address=${IP} | tee ${LOG}
 
@@ -63,7 +63,7 @@ until kubectl get pod docker-registry-$(hostname) ;do  sleep 3; done
 
 
 #运行calico
-sed -r "/image/s|image: (.*)|image: ${IP}:${DOCKER_REGISTRY_PORT}/\1|" \
+sed -r "/image/s|image: (.*)|image: ${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PORT}/\1|" \
   ${RESOURCES_ROOT}/k8s/calico.yaml | kubectl apply -f -
 
 
@@ -73,7 +73,7 @@ createrepo ${PACKAGES_ROOT}/yum
 sed -e "s|\${NAME}|nginx|" \
     -e "s|\${LOCAL_PACKAGES_PATH}|${PACKAGES_ROOT}/yum|" \
     -e "s|\${HOST_PORT}|${NGINX_PORT}|" \
-    -e "s|\${REGISTRY_URL}|${IP}:${DOCKER_REGISTRY_PORT}|" \
+    -e "s|\${REGISTRY_URL}|${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PORT}|" \
   ${RESOURCES_ROOT}/k8s/nginx.yaml > /etc/kubernetes/manifests/nginx.yaml
 
 

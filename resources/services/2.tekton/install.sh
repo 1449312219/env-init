@@ -2,7 +2,7 @@ files=(pipeline-v0.15.2.yaml trigger-v0.7.0.yaml dashboard-v0.8.2.yaml)
 
 function apply() {
   local file=$1
-  sed -r "/@sha/ s|([-0-9a-zA-Z/:.]+)@[^\"]*|${MASTER_IP}:${DOCKER_REGISTRY_PORT}/\1|" ${file} \
+  sed -r "/@sha/ s|([-0-9a-zA-Z/:.]+)@[^\"]*|${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PORT}/\1|" ${file} \
   | kubectl apply -f -
 }
 
