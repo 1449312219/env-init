@@ -1,5 +1,3 @@
-cd $HELM_DIR/charts
-
 name=gitea
 chart=${name}-0.2.1.tgz
 
@@ -12,6 +10,8 @@ if test ${registry} != : ;then
   set=images.gitea=${registry}/gitea/gitea:1.12.2
   set=${set},images.postgres=${registry}/postgres:11
   set=${set},images.memcached=${registry}/memcached:1.5.19-alpine
+  set=${set},service.http.externalHost=${MASTER_IP}
+  set=${set},service.ssh.externalHost=${MASTER_IP}
 fi
 #set=$set,persistence.giteaSize=8Gi,persistence.accessMode=ReadWriteOnce
 
