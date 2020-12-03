@@ -4,251 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>50</y>
-      <w>100</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-style=autoresize
-valign=center
-halign=center
-fontsize=18
-/DB2实例/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>390</x>
-      <y>0</y>
-      <w>180</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.3
-style=autoresize
-valign=center
-halign=left
-fontsize=18
-/数据库管理器 (DMA)/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>530</x>
-      <y>80</y>
-      <w>90</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-style=autoresize
-valign=center
-halign=left
-fontsize=18
-/DB2实例/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>670</x>
-      <y>90</y>
-      <w>100</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-style=autoresize
-valign=center
-halign=center
-fontsize=22
-/DB2实例/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>280</x>
-      <y>200</y>
-      <w>70</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=..&gt;
-lw=.6
-r1=优先级
-r1pos=0,-30</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>180</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r2=1
-r2pos=13,0</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>210</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=1
-r1pos=-15,0</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>210</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=*
-r1pos=-15,3</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>180</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r2=*
-r2pos=15,3</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>240</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=1
-r1pos=-15,0
-r2=1
-r2pos=13,0</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>240</y>
-      <w>190</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=*
-r1pos=-15,3
-r2=*
-r2pos=15,3</panel_attributes>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>260</x>
-      <y>50</y>
-      <w>90</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-style=autoresize
-valign=center
-halign=center
-fontsize=18
-/DB2实例/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>200</x>
-      <y>200</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=..&gt;
-lw=.6</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>0</x>
-      <y>330</y>
-      <w>1120</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=.
-lw=.6</panel_attributes>
-    <additional_attributes>10.0;10.0;1100.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>780</x>
-      <y>180</y>
-      <w>40</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=*
-r1pos=1,-33
-r2=1
-r2pos=0,30</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>840</x>
-      <y>180</y>
-      <w>40</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=..
-lw=.6
-r1=1
-r1pos=0,-30
-r2=*
-r2pos=1,33</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>360</x>
-      <y>440</y>
+      <y>150</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -264,7 +21,7 @@ fontsize=18
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>530</y>
+      <y>240</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -280,7 +37,7 @@ fontsize=18
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>620</y>
+      <y>330</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -296,7 +53,7 @@ fontsize=18
     <id>UMLClass</id>
     <coordinates>
       <x>300</x>
-      <y>400</y>
+      <y>110</y>
       <w>450</w>
       <h>290</h>
     </coordinates>
@@ -312,7 +69,7 @@ fontsize=18
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>560</y>
+      <y>270</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -329,7 +86,7 @@ fontsize=18
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>440</y>
+      <y>150</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -346,7 +103,7 @@ fontsize=18
     <id>Relation</id>
     <coordinates>
       <x>430</x>
-      <y>450</y>
+      <y>160</y>
       <w>150</w>
       <h>150</h>
     </coordinates>
@@ -359,7 +116,7 @@ lw=.4
     <id>Relation</id>
     <coordinates>
       <x>430</x>
-      <y>440</y>
+      <y>150</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -372,7 +129,7 @@ lw=.5
     <id>Relation</id>
     <coordinates>
       <x>430</x>
-      <y>540</y>
+      <y>250</y>
       <w>150</w>
       <h>60</h>
     </coordinates>
@@ -385,7 +142,7 @@ lw=.4
     <id>Relation</id>
     <coordinates>
       <x>430</x>
-      <y>570</y>
+      <y>280</y>
       <w>150</w>
       <h>90</h>
     </coordinates>
@@ -398,7 +155,7 @@ lw=.4
     <id>Text</id>
     <coordinates>
       <x>660</x>
-      <y>430</y>
+      <y>140</y>
       <w>70</w>
       <h>80</h>
     </coordinates>
@@ -417,9 +174,9 @@ fontsize=16
     <id>Text</id>
     <coordinates>
       <x>660</x>
-      <y>550</y>
-      <w>60</w>
-      <h>80</h>
+      <y>260</y>
+      <w>80</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=..
 lw=.6
@@ -429,14 +186,15 @@ halign=left
 fontsize=16
 / /shell/
 / /repos/
-/ /k8s/</panel_attributes>
+/ /k8s/
+/ /services/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
       <x>320</x>
-      <y>470</y>
+      <y>180</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -453,7 +211,7 @@ fontsize=16
     <id>Text</id>
     <coordinates>
       <x>320</x>
-      <y>560</y>
+      <y>270</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -470,7 +228,7 @@ fontsize=16
     <id>Text</id>
     <coordinates>
       <x>320</x>
-      <y>650</y>
+      <y>360</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -487,7 +245,7 @@ fontsize=16
     <id>Text</id>
     <coordinates>
       <x>540</x>
-      <y>480</y>
+      <y>190</y>
       <w>70</w>
       <h>40</h>
     </coordinates>
@@ -504,7 +262,7 @@ fontsize=14
     <id>Relation</id>
     <coordinates>
       <x>530</x>
-      <y>440</y>
+      <y>150</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -515,7 +273,7 @@ fontsize=14
     <id>Relation</id>
     <coordinates>
       <x>530</x>
-      <y>550</y>
+      <y>260</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -526,7 +284,7 @@ fontsize=14
     <id>Text</id>
     <coordinates>
       <x>540</x>
-      <y>590</y>
+      <y>300</y>
       <w>80</w>
       <h>40</h>
     </coordinates>
@@ -538,5 +296,53 @@ halign=left
 fontsize=14
 /rsync同步/</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>750</x>
+      <y>320</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=..
+lw=.6
+//style=autoresize
+valign=center
+halign=left
+fontsize=15
+/ /&lt;nnn&gt;.&lt;xxx&gt;/install.sh/
+/                       /.../
+/ /.../</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>760</x>
+      <y>290</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=..
+lw=.6
+style=autoresize
+valign=center
+halign=left
+fontsize=14
+/数字,依大小排序后,执行install.sh/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>300</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=..
+lw=.1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
 </diagram>
