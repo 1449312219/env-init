@@ -18,7 +18,7 @@ sed -i -e "/^cachedir/{s|.*|cachedir=${PACKAGES_ROOT}/yum|}" \
 yum makecache fast -y
 
 
-#安装k8s
+#初始化k8s环境
 ./init-k8s-context.sh
 
 
@@ -59,7 +59,7 @@ sed -e "s|\${NAME}|${registryName}|" \
   ${RESOURCES_ROOT}/k8s/${registryName}.yaml > /etc/kubernetes/manifests/${registryName}.yaml
 until kubectl get pod docker-registry-$(hostname) ;do  sleep 3; done
 #暴露为服务
-#kubectl expose pod $RegistryName-$(hostname) --name=$RegistryName --type=NodePort  --overrides='{"apiVersion":"v1","spec":{"ports":[{"port":5000,"nodePort":'$DOCKER_REGISTRY_PORT'}]}}'
+kubectl expose pod ${registryName}-$(hostname) --name=${DOCKER_REGISTRY_HOST}
 
 
 #运行calico

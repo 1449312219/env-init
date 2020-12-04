@@ -380,8 +380,8 @@ fontsize=15
     <coordinates>
       <x>300</x>
       <y>480</y>
-      <w>250</w>
-      <h>60</h>
+      <w>290</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=..
 lw=.1
@@ -391,7 +391,8 @@ halign=left
 fontsize=14
 */ /etc/hosts/*
 --
-/192.168.101.10  inner-docker-registry/</panel_attributes>
+/192.168.101.10  inner-docker-registry/
+/192.168.101.10  inner-docker-registry.default/</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
