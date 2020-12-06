@@ -9,7 +9,7 @@ for dir in $(find . -type d -regex '.*/[0-9]+\..+' \
     continue
   fi
   
-  cd ${dir}
+  cd ${dir} >/dev/null
   bash install.sh
-  cd -
+  cd - >/dev/null
 done
