@@ -1,5 +1,4 @@
-cacheOnly=${1:-true}
-yum="yum install -y $(test '${cacheOnly}' == 'true' && echo -C)"
+yum="yum install -y $(test "${INSTALL_ONLY_LOCAL:-true}" == 'true' && echo -C)"
 
 #准备k8s环境
 swapoff -a
