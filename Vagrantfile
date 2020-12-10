@@ -11,6 +11,8 @@ Vagrant.configure("2") do |config|
   podCidr="172.16.0.0/16"
     
   config.vm.define "master" do |master|
+    master.vm.network "forwarded_port", host: "2222", guest: "22"
+    master.vm.network "forwarded_port", host: "30280", guest: "30280"
     master.vm.network "private_network", ip: "#{masterIP}"
     
     master.vm.synced_folder '.', '/vagrant', type: "smb", mount_options:["nobrl"], create: true
