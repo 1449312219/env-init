@@ -15,7 +15,7 @@ sed -i '/enabled=1/ s/1/0/' /etc/yum.repos.d/local.repo
 sed -i -e "/^cachedir/{s|.*|cachedir=${PACKAGES_ROOT}/yum|}" \
        -e "/^keepcache/s/=.*/=1/" /etc/yum.conf
 
-yum makecache fast -y
+#yum makecache fast -y
 
 
 #初始化k8s环境
