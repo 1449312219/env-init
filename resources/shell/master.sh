@@ -68,7 +68,7 @@ sed -r "/image/s|image: (.*)|image: ${DOCKER_REGISTRY_HOST}:${DOCKER_REGISTRY_PO
 
 
 #运行nginx, 暴露yum源
-yum install -yC createrepo
+yum install -yC --nogpgcheck createrepo
 createrepo ${PACKAGES_ROOT}/yum
 sed -e "s|\${NAME}|nginx|" \
     -e "s|\${LOCAL_PACKAGES_PATH}|${PACKAGES_ROOT}/yum|" \

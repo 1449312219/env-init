@@ -1,4 +1,4 @@
-yum="yum install -y $(test "${INSTALL_ONLY_LOCAL:-true}" == 'true' && echo -C)"
+yum="yum install -y $(test "${INSTALL_ONLY_LOCAL:-true}" == 'true' && echo -C --nogpgcheck)"
 
 #准备k8s环境
 swapoff -a
